@@ -117,7 +117,7 @@ export default {
               "px;left:" +
               (rect.x + window.scrollX) +
               "px;top:" +
-              (rect.top + window.scrollY) +
+              (20) +
               "px;";
           }
           this.options.paneContainer.setAttribute("style", customStyle);
