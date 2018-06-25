@@ -106,7 +106,7 @@ export default {
               "px;left:" +
               (rect.right + window.scrollX + 5) +
               "px;top:" +
-              (rect.top + window.scrollY) +
+              (12) +
               "px;";
           } else {
             customStyle =
