@@ -1,8 +1,8 @@
 <template>
 <div :class="zoomer_box">
     <div class="preview-box" >
-        <img :src="previewImg.url" 
-             :data-zoom="previewLargeImg.url" 
+        <img :src="previewImg.url"
+             :data-zoom="previewLargeImg.url"
              class="responsive-image"
         />
     </div>
@@ -11,13 +11,13 @@
             <i aria-hidden="true" class="fa fa-angle-left"></i>
         </div>
         <div class="thumb-list">
-              <img @mouseover="chooseThumb(thumb, $event)" 
-                  v-show="key < options.scroll_items" 
-                  :key="key" 
-                  :src="thumb.url" 
-                  @click="chooseThumb(thumb, $event)" 
-                  v-for="(thumb, key) in thumbs" 
-                  class="responsive-image" 
+              <img @mouseover="chooseThumb(thumb, $event)"
+                  v-show="key < options.scroll_items"
+                  :key="key"
+                  :src="thumb.url"
+                  @click="chooseThumb(thumb, $event)"
+                  v-for="(thumb, key) in thumbs"
+                  class="responsive-image"
                   v-bind:style="{'boxShadow' : thumb.id === choosedThumb.id ? '0px 0px 0px 2px ' + options.choosed_thumb_border_color : ''}"
                   :class="{'choosed-thumb': thumb.id === choosedThumb.id}">
         </div>
@@ -25,7 +25,7 @@
             <i aria-hidden="true" class="fa fa-angle-right"></i>
         </div>
     </div>
-    <div :id="pane_id" class="pane-container"></div>
+    <div :id="pane_id" class="pane-container" style="top:200px"></div>
 </div>
 </template>
 
