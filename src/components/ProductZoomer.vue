@@ -25,7 +25,7 @@
             <i aria-hidden="true" class="fa fa-angle-right"></i>
         </div>
     </div>
-    <div :id="pane_id" class="pane-container" style="top:200px"></div>
+    <div :id="pane_id" class="pane-container" style="top:12px"></div>
 </div>
 </template>
 
