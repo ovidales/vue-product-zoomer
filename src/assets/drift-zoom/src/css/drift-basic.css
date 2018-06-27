@@ -146,5 +146,7 @@
 }
 
 .drift-bounding-box {
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(231, 107, 16, 0.4);
+
+  border-radius: 50%;
 }

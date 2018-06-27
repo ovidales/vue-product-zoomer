@@ -25,7 +25,7 @@
             <i aria-hidden="true" class="fa fa-angle-right"></i>
         </div>
     </div>
-    <div :id="pane_id" class="pane-container" style="top:12px"></div>
+    <div :id="pane_id" class="pane-container"></div>
 </div>
 </template>
 
@@ -117,7 +117,7 @@ export default {
               "px;left:" +
               (rect.x + window.scrollX) +
               "px;top:" +
-              (20) +
+              (rect.top + window.scrollY) +
               "px;";
           }
           this.options.paneContainer.setAttribute("style", customStyle);
