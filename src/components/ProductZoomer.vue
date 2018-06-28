@@ -106,7 +106,7 @@ export default {
               "px;left:" +
               (rect.right + window.scrollX + 5) +
               "px;top:" +
-              (12) +
+              (rect.top + window.scrollY) +
               "px;";
           } else {
             customStyle =
@@ -239,10 +239,10 @@ export default {
   border-radius: 0px;
 }
 .pane-container {
-  /*display: none;*/
+  display: none;
   position: absolute;
-  /*z-index: 10000;*/
-  /*pointer-events: none;*/
+  z-index: 10000;
+  pointer-events: none;
 }
 .responsive-image {
   height: auto;
