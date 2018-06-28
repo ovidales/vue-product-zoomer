@@ -239,10 +239,10 @@ export default {
   border-radius: 0px;
 }
 .pane-container {
-  display: none;
+  /*display: none;*/
   position: absolute;
-  z-index: 10000;
-  pointer-events: none;
+  /*z-index: 10000;*/
+  /*pointer-events: none;*/
 }
 .responsive-image {
   height: auto;
