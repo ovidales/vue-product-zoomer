@@ -21,6 +21,34 @@
         }
             </pre>
           </div>
+
+
+    <div style="width: 25%">
+      <ProductZoomer
+        :base-images="images"
+        :base-zoomer-options="zoomerOptions"
+      />
+    </div>
+    <div>
+      <h3>With A Pane Container Zoomer</h3>
+      <pre>
+        'zoomerOptions': {
+          'zoomFactor': 3,
+          'pane': 'pane',
+          'hoverDelay': 300,
+          'namespace': 'zoomer',
+          'move_by_click':false,
+          'scroll_items': 7,
+          'choosed_thumb_border_color': "#dd2c00"
+        }
+            </pre>
+    </div>
+
+
+
+
+
+
     <hr>
         <div style="width: 400px">
           <ProductZoomer
