@@ -103,12 +103,11 @@ export default {
               rect.width * 1.2 +
               "px;height:" +
               rect.height +
-              "px;left:"
-              // +
-              // (rect.right + window.scrollX + 5) +
-              // "px;top:" +
-              // (rect.top + window.scrollY) +
-              // "px;";
+              "px;left:" +
+              (rect.right + window.scrollX + 5) +
+              "px;top:" +
+              (rect.top + window.scrollY) +
+              "px;";
           } else {
             // customStyle =
             //   "width:" +
