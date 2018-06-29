@@ -103,22 +103,23 @@ export default {
               rect.width * 1.2 +
               "px;height:" +
               rect.height +
-              "px;left:" +
-              (rect.right + window.scrollX + 5) +
-              "px;top:" +
-              (rect.top + window.scrollY) +
-              "px;";
+              "px;left:"
+              // +
+              // (rect.right + window.scrollX + 5) +
+              // "px;top:" +
+              // (rect.top + window.scrollY) +
+              // "px;";
           } else {
-            customStyle =
-              "width:" +
-              rect.width +
-              "px;height:" +
-              rect.height +
-              "px;left:" +
-              (rect.x + window.scrollX) +
-              "px;top:" +
-              (rect.top + window.scrollY) +
-              "px;";
+            // customStyle =
+            //   "width:" +
+            //   rect.width +
+            //   "px;height:" +
+            //   rect.height +
+            //   "px;left:" +
+            //   (rect.x + window.scrollX) +
+            //   "px;top:" +
+            //   (rect.top + window.scrollY) +
+            //   "px;";
           }
           this.options.paneContainer.setAttribute("style", customStyle);
         }

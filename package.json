@@ -20,7 +20,8 @@
     "eslint-config-standard": "^10.2.1",
     "espree": "^3.5.2",
     "font-awesome": "^4.7.0",
-    "vue": "^2.5.2"
+    "vue": "^2.5.2",
+    "vuetify": "^1.1.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
