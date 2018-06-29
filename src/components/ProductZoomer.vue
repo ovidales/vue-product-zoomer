@@ -97,7 +97,7 @@ export default {
             .querySelector("." + this.zoomer_box)
             .getBoundingClientRect();
           let customStyle = "";
-          if (this.options.pane === "pane") {
+          if (this.options.pane === "pane" || this.options.pane === "paneD") {
             customStyle =
               "width:" +
               rect.width * 1.2 +
@@ -177,7 +177,10 @@ export default {
         }
       }
     }
+    if (this.options.pane === "paneD"){
+      this.options.hoverBoundingBox = true;
 
+    }
     if (
       this.options.pane === "container-round" ||
       this.options.pane === "container"

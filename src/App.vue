@@ -26,7 +26,7 @@
     <div style="width: 25%">
       <ProductZoomer
         :base-images="images"
-        :base-zoomer-options="zoomerOptions"
+        :base-zoomer-options="zoomerOptionsD"
       />
     </div>
     <div>
@@ -220,10 +220,19 @@ export default {
         'zoomFactor': 3,
         'pane': 'pane',
         'hoverDelay': 300,
-        'namespace': 'zoomer',
+        'namespace': 'zoomerO',
         'move_by_click':false,
         'scroll_items': 7,
         'choosed_thumb_border_color': "#dd2c00"
+      },
+      'zoomerOptionsD': {
+        'zoomFactor': 3,
+        'pane': 'pane',
+        'hoverDelay': 300,
+        'namespace': 'zoomer',
+        'move_by_click':false,
+        'scroll_items': 7,
+        'choosed_thumb_border_color': "#1298e7"
       },
       'containerRoundOptions': {
         'zoomFactor': 4,
