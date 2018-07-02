@@ -73,12 +73,12 @@ export default class Drift {
       touchBoundingBox = false,
     } = options;
 
-    // if (inlinePane !== true && !isDOMElement(paneContainer)) {
-    //   throw new TypeError('`paneContainer` must be a DOM element when `inlinePane !== true`');  se lo quite para hacer pruebas
-    // }
-    // if(!isDOMElement(inlineContainer)){
-    //   throw new TypeError('`inlineContainer` must be a DOM element');  se lo quite para hacer pruebas
-    // }
+    if (inlinePane !== true && !isDOMElement(paneContainer)) {
+      throw new TypeError('`paneContainer` must be a DOM element when `inlinePane !== true`');
+    }
+    if(!isDOMElement(inlineContainer)){
+      throw new TypeError('`inlineContainer` must be a DOM element');
+    }
 
     this.settings = { namespace, showWhitespaceAtEdges, containInline, inlineOffsetX, inlineOffsetY, inlineContainer, sourceAttribute, zoomFactor, paneContainer, inlinePane, handleTouch, onShow, onHide, injectBaseStyles, hoverDelay, touchDelay, hoverBoundingBox, touchBoundingBox };
 
