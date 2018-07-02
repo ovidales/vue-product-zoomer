@@ -198,7 +198,7 @@
           'namespace': 'zoomer',
           'move_by_click':false,
           'scroll_items': 7,
-          'choosed_thumb_border_color': "#128bd7"
+          'choosed_thumb_border_color': "#dd2c00"
         },
         'containerRoundOptions': {
           'zoomFactor': 4,
@@ -207,7 +207,7 @@
           'namespace': 'inline-zoomer',
           'move_by_click':true,
           'scroll_items': 5,
-          'choosed_thumb_border_color': "#bbdefb"
+          'choosed_thumb_border_color': "#e76b10"
         },
         'containerOptions': {
           'zoomFactor': 4,
