@@ -100,7 +100,7 @@
 
 .drift-zoom-pane.drift-inline {
   position: absolute;
-  width: 150px;
+  width: 250px;
   height: 150px;
   /*border-radius: 75px;*/
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
