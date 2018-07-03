@@ -1,227 +1,186 @@
 <template>
-  <main>
-    <div>
-      <div style="width: 400px">
-        <ProductZoomer
-          :base-images="images"
-          :base-zoomer-options="containerRoundOptions"
-        />
-      </div>
+  <div id="app">
+    <v-app id="inspire">
+      <v-stepper v-model="e1">
+        <v-stepper-header>
+          <v-stepper-step :complete="e1 > 1" step="1">Name of step 1</v-stepper-step>
 
-      <div style="width: 25%">
-        <ProductZoomer
-          :base-images="images"
-          :base-zoomer-options="zoomerOptions"
-        />
-      </div>
-      <div>
-        <h3>With A Pane Container Zoomer</h3>
-        <pre>
-'zoomerOptions': {
-  'zoomFactor': 3,
-  'pane': 'pane',
-  'hoverDelay': 300,
-  'namespace': 'zoomer',
-  'move_by_click':false,
-  'scroll_items': 7,
-  'choosed_thumb_border_color': "#dd2c00"
-}
-            </pre>
-      </div>
-      <hr>
+          <v-divider></v-divider>
 
-      <div>
-        <h3>Inside Zoomer Container With Round Effect</h3>
-        <pre>
-'containerRoundOptions': {
-  'zoomFactor': 4,
-  'pane': 'container-round',
-  'hoverDelay': 300,
-  'namespace': 'inline-zoomer',
-  'move_by_click':true,
-  'scroll_items': 5,
-  'choosed_thumb_border_color': "#bbdefb"
-}
-            </pre>
-      </div>
-      <hr>
-      <div style="width: 400px">
-        <ProductZoomer
-          :base-images="images"
-          :base-zoomer-options="containerOptions"
-        />
-      </div>
-      <div>
-        <h3>Inside Zoomer Container</h3>
-        <pre>
-'containerOptions': {
-  'zoomFactor': 4,
-  'pane': 'container',
-  'hoverDelay': 300,
-  'namespace': 'container-zoomer',
-  'move_by_click':true,
-  'scroll_items': 4
-}
-            </pre>
-      </div>
-    </div>
-  </main>
+          <v-stepper-step :complete="e1 > 2" step="2">Name of step 2</v-stepper-step>
+
+          <v-divider></v-divider>
+
+          <v-stepper-step step="3">Name of step 3</v-stepper-step>
+        </v-stepper-header>
+
+        <v-stepper-items >
+          <v-stepper-content step="1">
+            <v-card
+              class="mb-5"
+              color="grey lighten-1"
+
+            >
+              <v-carousel :cycle="false">
+                <v-carousel-item v-for="(item,i) in images" :key="i">
+                  <div style="width: 40%">
+                  <ProductZoomer
+                    :nameSpaceOptions="i"
+                    :base-images="images"
+                    :base-zoomer-options="containerRoundOptions"/>
+                  </div>
+                </v-carousel-item>
+                <!--<v-carousel-item-->
+                  <!--v-for="(item,i) in images"-->
+                  <!--:key="i"-->
+                  <!--:src="item.src"-->
+                <!--&gt;</v-carousel-item>-->
+              </v-carousel>
+
+            </v-card>
+
+            <v-btn
+              color="primary"
+              @click="e1 = 2"
+            >
+              Continue
+            </v-btn>
+
+            <v-btn flat>Cancel</v-btn>
+          </v-stepper-content>
+
+          <v-stepper-content step="2">
+            <v-card
+              class="mb-5"
+              color="grey lighten-1"
+              height="200px"
+            ></v-card>
+
+            <v-btn
+              color="primary"
+              @click="e1 = 3"
+            >
+              Continue
+            </v-btn>
+
+            <v-btn flat>Cancel</v-btn>
+          </v-stepper-content>
+
+          <v-stepper-content step="3">
+            <v-card
+              class="mb-5"
+              color="grey lighten-1"
+              height="200px"
+            ></v-card>
+
+            <v-btn
+              color="primary"
+              @click="e1 = 1"
+            >
+              Continue
+            </v-btn>
+
+            <v-btn flat>Cancel</v-btn>
+          </v-stepper-content>
+        </v-stepper-items>
+      </v-stepper>
+    </v-app>
+  </div>
 </template>
-
 <script>
-  import ProductZoomer from '../dist/gh-page/app.js'
-
+  import ProductZoomer from './components/ProductZoomer'
   export default {
-    name: 'app',
-    data () {
-      return {
-        'images': {
-          'thumbs': [
-            {
-              'id': 1,
-              'url': 'http://yoohooworld.com/images/vue_product_zoomer/thumbs/1.jpeg'
-            },
-            {
-              'id': 2,
-              'url': 'http://yoohooworld.com/images/vue_product_zoomer/thumbs/2.jpeg'
-            },
-            {
-              'id': 3,
-              'url': 'http://yoohooworld.com/images/vue_product_zoomer/thumbs/3.jpeg'
-            },
-            {
-              'id': 4,
-              'url': 'http://yoohooworld.com/images/vue_product_zoomer/thumbs/4.jpeg'
-            },
-            {
-              'id': 5,
-              'url': 'http://yoohooworld.com/images/vue_product_zoomer/thumbs/5.jpeg'
-            },
-            {
-              'id': 6,
-              'url': 'http://yoohooworld.com/images/vue_product_zoomer/thumbs/6.jpeg'
-            },
-            {
-              'id': 7,
-              'url': 'http://yoohooworld.com/images/vue_product_zoomer/thumbs/7.jpeg'
-            },
-            {
-              'id': 8,
-              'url': 'http://yoohooworld.com/images/vue_product_zoomer/thumbs/8.jpeg'
-            },
-            {
-              'id': 9,
-              'url': 'http://yoohooworld.com/images/vue_product_zoomer/thumbs/9.jpeg'
-            }
-          ],
-          'normal_size': [
-            {
-              'id': 1,
-              'url': 'http://yoohooworld.com/images/vue_product_zoomer/normal_size/1.jpeg'
-            },
-            {
-              'id': 2,
-              'url': 'http://yoohooworld.com/images/vue_product_zoomer/normal_size/2.jpeg'
-            },
-            {
-              'id': 3,
-              'url': 'http://yoohooworld.com/images/vue_product_zoomer/normal_size/3.jpeg'
-            },
-            {
-              'id': 4,
-              'url': 'http://yoohooworld.com/images/vue_product_zoomer/normal_size/4.jpeg'
-            },
-            {
-              'id': 5,
-              'url': 'http://yoohooworld.com/images/vue_product_zoomer/normal_size/5.jpeg'
-            },
-            {
-              'id': 6,
-              'url': 'http://yoohooworld.com/images/vue_product_zoomer/normal_size/6.jpeg'
-            },
-            {
-              'id': 7,
-              'url': 'http://yoohooworld.com/images/vue_product_zoomer/normal_size/7.jpeg'
-            },
-            {
-              'id': 8,
-              'url': 'http://yoohooworld.com/images/vue_product_zoomer/normal_size/8.jpeg'
-            },
-            {
-              'id': 9,
-              'url': 'http://yoohooworld.com/images/vue_product_zoomer/normal_size/9.jpeg'
-            }
-          ],
-          'large_size': [
-            {
-              'id': 1,
-              'url': 'http://yoohooworld.com/images/vue_product_zoomer/large_size/1.jpeg'
-            },
-            {
-              'id': 2,
-              'url': 'http://yoohooworld.com/images/vue_product_zoomer/large_size/2.jpeg'
-            },
-            {
-              'id': 3,
-              'url': 'http://yoohooworld.com/images/vue_product_zoomer/large_size/3.jpeg'
-            },
-            {
-              'id': 4,
-              'url': 'http://yoohooworld.com/images/vue_product_zoomer/large_size/4.jpeg'
-            },
-            {
-              'id': 5,
-              'url': 'http://yoohooworld.com/images/vue_product_zoomer/large_size/5.jpeg'
-            },
-            {
-              'id': 6,
-              'url': 'http://yoohooworld.com/images/vue_product_zoomer/large_size/6.jpeg'
-            },
-            {
-              'id': 7,
-              'url': 'http://yoohooworld.com/images/vue_product_zoomer/large_size/7.jpeg'
-            },
-            {
-              'id': 8,
-              'url': 'http://yoohooworld.com/images/vue_product_zoomer/large_size/8.jpeg'
-            },
-            {
-              'id': 9,
-              'url': 'http://yoohooworld.com/images/vue_product_zoomer/large_size/9.jpeg'
-            }
-          ]
-        },
-        'zoomerOptions': {
-          'zoomFactor': 3,
-          'pane': 'pane',
-          'hoverDelay': 300,
-          'namespace': 'zoomer',
-          'move_by_click':false,
-          'scroll_items': 7,
-          'choosed_thumb_border_color': "#dd2c00"
-        },
-        'containerRoundOptions': {
-          'zoomFactor': 4,
-          'pane': 'container-round',
-          'hoverDelay': 300,
-          'namespace': 'inline-zoomer',
-          'move_by_click':true,
-          'scroll_items': 5,
-          'choosed_thumb_border_color': "#e76b10"
-        },
-        'containerOptions': {
-          'zoomFactor': 4,
-          'pane': 'container',
-          'hoverDelay': 300,
-          'namespace': 'container-zoomer',
-          'move_by_click':true,
-          'scroll_items': 4,
-        }
-      }
-    },
-    components: {
+    components:{
       ProductZoomer
-    }
+    },
+    data: ()=>({
+      e1: 0,
+      images: {
+        'normal_size': [
+          {
+
+            url: 'http://yoohooworld.com/images/vue_product_zoomer/normal_size/1.jpeg'
+          },
+          {
+
+            url: 'http://yoohooworld.com/images/vue_product_zoomer/normal_size/2.jpeg'
+          },
+          {
+
+            url: 'http://yoohooworld.com/images/vue_product_zoomer/normal_size/3.jpeg'
+          },
+          {
+
+            url: 'http://yoohooworld.com/images/vue_product_zoomer/normal_size/4.jpeg'
+          },
+          {
+
+            url: 'http://yoohooworld.com/images/vue_product_zoomer/normal_size/5.jpeg'
+          },
+          {
+
+            url: 'http://yoohooworld.com/images/vue_product_zoomer/normal_size/6.jpeg'
+          },
+          {
+
+            url: 'http://yoohooworld.com/images/vue_product_zoomer/normal_size/7.jpeg'
+          },
+          {
+
+            'url': 'http://yoohooworld.com/images/vue_product_zoomer/normal_size/8.jpeg'
+          },
+          {
+
+            url: 'http://yoohooworld.com/images/vue_product_zoomer/normal_size/9.jpeg'
+          }
+        ],
+        'large_size': [
+          {
+
+            url: 'http://yoohooworld.com/images/vue_product_zoomer/large_size/1.jpeg'
+          },
+          {
+
+            url: 'http://yoohooworld.com/images/vue_product_zoomer/large_size/2.jpeg'
+          },
+          {
+
+            url: 'http://yoohooworld.com/images/vue_product_zoomer/large_size/3.jpeg'
+          },
+          {
+
+            url: 'http://yoohooworld.com/images/vue_product_zoomer/large_size/4.jpeg'
+          },
+          {
+
+            url: 'http://yoohooworld.com/images/vue_product_zoomer/large_size/5.jpeg'
+          },
+          {
+
+            url: 'http://yoohooworld.com/images/vue_product_zoomer/large_size/6.jpeg'
+          },
+          {
+
+            url: 'http://yoohooworld.com/images/vue_product_zoomer/large_size/7.jpeg'
+          },
+          {
+
+            url: 'http://yoohooworld.com/images/vue_product_zoomer/large_size/8.jpeg'
+          },
+          {
+
+            url: 'http://yoohooworld.com/images/vue_product_zoomer/large_size/9.jpeg'
+          }
+        ]
+      },
+      'containerRoundOptions': {
+        'zoomFactor': 4,
+        'pane': 'container-round',
+        'hoverDelay': 300,
+        'move_by_click':true,
+        'scroll_items': 5,
+        'choosed_thumb_border_color': "#grey lighten-1"
+      }
+    })
   }
 </script>
-

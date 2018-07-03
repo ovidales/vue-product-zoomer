@@ -7,23 +7,22 @@
         />
     </div>
     <div class="control-box">
-        <div @click="moveThumbs('left')" class="control">
-            <i aria-hidden="true" class="fa fa-angle-left"></i>
-        </div>
+        <!--<div @click="moveThumbs('left')" class="control">-->
+            <!--<i aria-hidden="true" class="fa fa-angle-left"></i>-->
+        <!--</div>-->
         <div class="thumb-list">
               <img @mouseover="chooseThumb(thumb, $event)"
                   v-show="key < options.scroll_items"
                   :key="key"
-                  :src="thumb.url"
                   @click="chooseThumb(thumb, $event)"
                   v-for="(thumb, key) in thumbs"
                   class="responsive-image"
                   v-bind:style="{'boxShadow' : thumb.id === choosedThumb.id ? '0px 0px 0px 2px ' + options.choosed_thumb_border_color : ''}"
                   :class="{'choosed-thumb': thumb.id === choosedThumb.id}">
         </div>
-        <div @click="moveThumbs('right')" class="control">
-            <i aria-hidden="true" class="fa fa-angle-right"></i>
-        </div>
+        <!--<div @click="moveThumbs('right')" class="control">-->
+            <!--<i aria-hidden="true" class="fa fa-angle-right"></i>-->
+        <!--</div>-->
     </div>
     <div :id="pane_id" class="pane-container"></div>
 </div>
@@ -40,6 +39,9 @@ export default {
       default: function() {
         return {};
       }
+    },
+    nameSpaceOptions: {
+      type: String
     },
     baseImages: {
       type: Object,
@@ -65,7 +67,7 @@ export default {
         'namespace': 'container-zoomer',
         'move_by_click':true,
         'scroll_items': 4,
-        'choosed_thumb_border_color': "#ff3d00"
+        'choosed_thumb_border_color': "#fefefe"
       }
     };
   },
@@ -155,6 +157,10 @@ export default {
           this[key] = this.baseImages[key];
         }
       }
+    }
+
+    if (this.nameSpaceOptions !== "") {
+      this.options.namespace = this.nameSpaceOptions;
     }
 
     if (this.normal_size.length === 0) {

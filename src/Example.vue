@@ -73,8 +73,8 @@ export default {
   name: 'app',
   data () {
     return {
-      'images': {
-          'thumbs': [
+      images: {
+          thumbs: [
             {
               'id': 1,
               'url': 'http://yoohooworld.com/images/vue_product_zoomer/thumbs/1.jpeg'
