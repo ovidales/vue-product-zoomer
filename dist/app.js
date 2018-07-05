@@ -441,9 +441,6 @@ function throwIfMissing() {
 //
 //
 //
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
@@ -454,6 +451,9 @@ function throwIfMissing() {
       default: function _default() {
         return {};
       }
+    },
+    nameSpaceOptions: {
+      type: String
     },
     baseImages: {
       type: Object,
@@ -479,7 +479,7 @@ function throwIfMissing() {
         'namespace': 'container-zoomer',
         'move_by_click': true,
         'scroll_items': 4,
-        'choosed_thumb_border_color': "#ff3d00"
+        'choosed_thumb_border_color': "#fefefe"
       }
     };
   },
@@ -498,17 +498,26 @@ function throwIfMissing() {
     document.querySelector("." + this.zoomer_box + " .thumb-list").setAttribute("style", "grid-template-columns: repeat(" + this.baseZoomerOptions.scroll_items + ", auto)");
     var t = setInterval(function () {
       if (document.readyState === "complete") {
-        if (_this.options.pane === "container-round") {
+        if (_this.options.pane === "container-square") {
           _this.options.inlinePane = true;
         } else {
           _this.options.inlinePane = false;
           _this.options.paneContainer = document.getElementById(_this.pane_id);
           var rect = document.querySelector("." + _this.zoomer_box).getBoundingClientRect();
           var customStyle = "";
-          if (_this.options.pane === "pane") {
+          if (_this.options.pane === "pane" || _this.options.pane === "paneD") {
             customStyle = "width:" + rect.width * 1.2 + "px;height:" + rect.height + "px;left:" + (rect.right + window.scrollX + 5) + "px;top:" + (rect.top + window.scrollY) + "px;";
           } else {
-            customStyle = "width:" + rect.width + "px;height:" + rect.height + "px;left:" + (rect.x + window.scrollX) + "px;top:" + (rect.top + window.scrollY) + "px;";
+            // customStyle =
+            //   "width:" +
+            //   rect.width +
+            //   "px;height:" +
+            //   rect.height +
+            //   "px;left:" +
+            //   (rect.x + window.scrollX) +
+            //   "px;top:" +
+            //   (rect.top + window.scrollY) +
+            //   "px;";
           }
           _this.options.paneContainer.setAttribute("style", customStyle);
         }
@@ -543,6 +552,9 @@ function throwIfMissing() {
         }
       }
     }
+    if (this.nameSpaceOptions !== "") {
+      this.options.namespace = this.nameSpaceOptions;
+    }
     if (this.normal_size.length === 0) {
       console.log("Product Zoomer Need Normal Size Image At Least!!!");
       return;
@@ -562,7 +574,7 @@ function throwIfMissing() {
         }
       }
     }
-    if (this.options.pane === "container-round" || this.options.pane === "container") {
+    if (this.options.pane === "container-square" || this.options.pane === "container") {
       this.options.hoverBoundingBox = false;
     } else {
       this.options.hoverBoundingBox = true;
@@ -2896,36 +2908,9 @@ var render = function() {
     _c("div", { staticClass: "control-box" }, [
       _c(
         "div",
-        {
-          staticClass: "control",
-          on: {
-            click: function($event) {
-              _vm.moveThumbs("left")
-            }
-          }
-        },
-        [
-          _c("i", {
-            staticClass: "fa fa-angle-left",
-            attrs: { "aria-hidden": "true" }
-          })
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
         { staticClass: "thumb-list" },
         _vm._l(_vm.thumbs, function(thumb, key) {
           return _c("img", {
-            directives: [
-              {
-                name: "show",
-                rawName: "v-show",
-                value: key < _vm.options.scroll_items,
-                expression: "key < options.scroll_items"
-              }
-            ],
-            key: key,
             staticClass: "responsive-image",
             class: { "choosed-thumb": thumb.id === _vm.choosedThumb.id },
             style: {
@@ -2934,7 +2919,6 @@ var render = function() {
                   ? "0px 0px 0px 2px " + _vm.options.choosed_thumb_border_color
                   : ""
             },
-            attrs: { src: thumb.url },
             on: {
               mouseover: function($event) {
                 _vm.chooseThumb(thumb, $event)
@@ -2945,24 +2929,6 @@ var render = function() {
             }
           })
         })
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "control",
-          on: {
-            click: function($event) {
-              _vm.moveThumbs("right")
-            }
-          }
-        },
-        [
-          _c("i", {
-            staticClass: "fa fa-angle-right",
-            attrs: { "aria-hidden": "true" }
-          })
-        ]
       )
     ]),
     _vm._v(" "),

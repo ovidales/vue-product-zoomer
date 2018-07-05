@@ -7,23 +7,20 @@
       />
     </div>
     <div class="control-box">
-      <div @click="moveThumbs('left')" class="control">
-        <i aria-hidden="true" class="fa fa-angle-left"></i>
-      </div>
+      <!--<div @click="moveThumbs('left')" class="control">-->
+        <!--<i aria-hidden="true" class="fa fa-angle-left"></i>-->
+      <!--</div>-->
       <div class="thumb-list">
         <img @mouseover="chooseThumb(thumb, $event)"
-             v-show="key < options.scroll_items"
-             :key="key"
-             :src="thumb.url"
              @click="chooseThumb(thumb, $event)"
              v-for="(thumb, key) in thumbs"
              class="responsive-image"
              v-bind:style="{'boxShadow' : thumb.id === choosedThumb.id ? '0px 0px 0px 2px ' + options.choosed_thumb_border_color : ''}"
              :class="{'choosed-thumb': thumb.id === choosedThumb.id}">
       </div>
-      <div @click="moveThumbs('right')" class="control">
-        <i aria-hidden="true" class="fa fa-angle-right"></i>
-      </div>
+      <!--<div @click="moveThumbs('right')" class="control">-->
+        <!--<i aria-hidden="true" class="fa fa-angle-right"></i>-->
+      <!--</div>-->
     </div>
     <div :id="pane_id" class="pane-container"></div>
   </div>
@@ -39,6 +36,9 @@
         default: function() {
           return {};
         }
+      },
+      nameSpaceOptions: {
+        type: String
       },
       baseImages: {
         type: Object,
@@ -64,7 +64,7 @@
           'namespace': 'container-zoomer',
           'move_by_click':true,
           'scroll_items': 4,
-          'choosed_thumb_border_color': "#ff3d00"
+          'choosed_thumb_border_color': "#fefefe"
         }
       };
     },
@@ -87,7 +87,7 @@
         );
       let t = setInterval(() => {
         if (document.readyState === "complete") {
-          if (this.options.pane === "container-round") {
+          if (this.options.pane === "container-square") {
             this.options.inlinePane = true;
           } else {
             this.options.inlinePane = false;
@@ -96,7 +96,7 @@
               .querySelector("." + this.zoomer_box)
               .getBoundingClientRect();
             let customStyle = "";
-            if (this.options.pane === "pane") {
+            if (this.options.pane === "pane" || this.options.pane === "paneD") {
               customStyle =
                 "width:" +
                 rect.width * 1.2 +
@@ -108,16 +108,16 @@
                 (rect.top + window.scrollY) +
                 "px;";
             } else {
-              customStyle =
-                "width:" +
-                rect.width +
-                "px;height:" +
-                rect.height +
-                "px;left:" +
-                (rect.x + window.scrollX) +
-                "px;top:" +
-                (rect.top + window.scrollY) +
-                "px;";
+              // customStyle =
+              //   "width:" +
+              //   rect.width +
+              //   "px;height:" +
+              //   rect.height +
+              //   "px;left:" +
+              //   (rect.x + window.scrollX) +
+              //   "px;top:" +
+              //   (rect.top + window.scrollY) +
+              //   "px;";
             }
             this.options.paneContainer.setAttribute("style", customStyle);
           }
@@ -154,6 +154,9 @@
           }
         }
       }
+      if (this.nameSpaceOptions !== "") {
+        this.options.namespace = this.nameSpaceOptions;
+      }
       if (this.normal_size.length === 0) {
         console.log("Product Zoomer Need Normal Size Image At Least!!!");
         return;
@@ -174,7 +177,7 @@
         }
       }
       if (
-        this.options.pane === "container-round" ||
+        this.options.pane === "container-square" ||
         this.options.pane === "container"
       ) {
         this.options.hoverBoundingBox = false;
