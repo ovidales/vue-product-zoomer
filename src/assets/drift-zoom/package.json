@@ -12,22 +12,22 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/imgix/drift.git"
+    "url": "git+https://github.com/ovidales/vue-product-zoomer.git"
   },
   "keywords": [
     "javascript",
     "zoom",
     "hover"
   ],
-  "author": "imgix",
+  "author": "ovidales",
   "license": "BSD-2",
   "bugs": {
-    "url": "https://github.com/imgix/drift/issues"
+    "url": "https://github.com/ovidales/drift/issues"
   },
-  "homepage": "https://github.com/imgix/drift",
+  "homepage": "https://github.com/ovidales/drift",
   "devDependencies": {
     "babel": "^6.3.13",
-    "babel-core": "^6.3.21",
+    "babel-core": "^6.26.0",
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-stage-0": "^6.3.13",
     "babelify": "^7.2.0",
@@ -51,6 +51,7 @@
     "run-sequence": "^1.1.5",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
+
   },
   "browserify": {
     "transform": ["babelify"]
