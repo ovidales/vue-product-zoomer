@@ -6,7 +6,7 @@
            class="responsive-image"
       />
     </div>
-    <div class="control-box">
+    <!--<div class="control-box">-->
       <!--<div @click="moveThumbs('left')" class="control">-->
       <!--<i aria-hidden="true" class="fa fa-angle-left"></i>-->
       <!--</div>-->
@@ -15,13 +15,12 @@
              @click="chooseThumb(thumb, $event)"
              v-for="(thumb, key) in thumbs"
              class="responsive-image"
-             v-bind:style="{'boxShadow' : thumb.id === choosedThumb.id ? '0px 0px 0px 2px ' + options.choosed_thumb_border_color : ''}"
-             :class="{'choosed-thumb': thumb.id === choosedThumb.id}">
+        >
       </div>
       <!--<div @click="moveThumbs('right')" class="control">-->
       <!--<i aria-hidden="true" class="fa fa-angle-right"></i>-->
       <!--</div>-->
-    </div>
+    <!--</div>-->
     <div :id="pane_id" class="pane-container"></div>
   </div>
 </template>
