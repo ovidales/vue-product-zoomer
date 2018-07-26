@@ -63,7 +63,7 @@
           'namespace': 'container-zoomer',
           'move_by_click':true,
           'scroll_items': 4,
-          'choosed_thumb_border_color': "#fefefe"
+          // 'choosed_thumb_border_color': "#fefefe"
         }
       };
     },

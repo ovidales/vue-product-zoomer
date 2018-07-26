@@ -440,7 +440,6 @@ function throwIfMissing() {
 //
 //
 //
-//
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
@@ -478,8 +477,8 @@ function throwIfMissing() {
         'hoverDelay': 300,
         'namespace': 'container-zoomer',
         'move_by_click': true,
-        'scroll_items': 4,
-        'choosed_thumb_border_color': "#fefefe"
+        'scroll_items': 4
+        // 'choosed_thumb_border_color': "#fefefe"
       }
     };
   },
@@ -2905,32 +2904,23 @@ var render = function() {
       })
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "control-box" }, [
-      _c(
-        "div",
-        { staticClass: "thumb-list" },
-        _vm._l(_vm.thumbs, function(thumb, key) {
-          return _c("img", {
-            staticClass: "responsive-image",
-            class: { "choosed-thumb": thumb.id === _vm.choosedThumb.id },
-            style: {
-              boxShadow:
-                thumb.id === _vm.choosedThumb.id
-                  ? "0px 0px 0px 2px " + _vm.options.choosed_thumb_border_color
-                  : ""
+    _c(
+      "div",
+      { staticClass: "thumb-list" },
+      _vm._l(_vm.thumbs, function(thumb, key) {
+        return _c("img", {
+          staticClass: "responsive-image",
+          on: {
+            mouseover: function($event) {
+              _vm.chooseThumb(thumb, $event)
             },
-            on: {
-              mouseover: function($event) {
-                _vm.chooseThumb(thumb, $event)
-              },
-              click: function($event) {
-                _vm.chooseThumb(thumb, $event)
-              }
+            click: function($event) {
+              _vm.chooseThumb(thumb, $event)
             }
-          })
+          }
         })
-      )
-    ]),
+      })
+    ),
     _vm._v(" "),
     _c("div", { staticClass: "pane-container", attrs: { id: _vm.pane_id } })
   ])

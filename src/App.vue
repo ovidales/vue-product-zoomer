@@ -25,7 +25,7 @@
                         <div style="color: black">
                           {{ imageArr }}
                         </div>
-                        <v-carousel :cycle="false">
+                        <v-carousel :cycle="false" >
                           <v-carousel-item v-for="(item, index, key) in imageArr" :key="index"
                                            >
                             k:{{key}}
@@ -139,7 +139,7 @@
       activo:0,
       imagesRender:[],
       imagesAll:[
-        'http://yoohooworld.com/images/vue_product_zoomer/normal_size/1.jpeg',
+        '/src/assets/logo.png',
         'http://yoohooworld.com/images/vue_product_zoomer/normal_size/2.jpeg',
         'http://yoohooworld.com/images/vue_product_zoomer/normal_size/3.jpeg',
       ],
